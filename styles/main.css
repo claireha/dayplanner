@@ -1,0 +1,68 @@
+/* CURRENTLY IN: styles/main.css */
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	background: black;
+}
+
+footer {
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background: #1b1c1d;
+	color:white;
+} 
+
+.banner {
+	background-image: url("https://drscdn.500px.org/photo/125967669/m%3D900/52abd8d9bd527a85b95067fdc88b054e");
+    background-color: black;
+    background-size: 100%;
+    background-position: center; 
+    color:white;
+    min-height: 200px;
+    opacity: 0.6;
+}
+
+.overflow{
+    max-width:75%;
+	margin: auto;
+    padding:15px;
+}
+
+.overflow h1 {
+	font-size: 20px;
+	padding-top: 20px;
+}
+
+.container {
+	background:white;
+}
+
+.wrapper {
+	background: white;
+	max-width:75%;
+	margin: auto;
+	padding-top: 15px;
+	padding-bottom:15px;
+}
+
+.social-icon{
+	width: 25px;
+	height: 25px;
+	padding: 2px;
+}
+
+.clearfix:after {
+	visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+#map {
+	min-height: 450px;
+	width: 100%;
+}
