@@ -5,6 +5,11 @@ const form = $('.js-form');
 // When the submit button on the form is clicked, run the function onSubmit()
 form.submit(onSubmit);
 
+// Accordian javascript
+$('.ui.accordion')
+  .accordion()
+;
+
 // Define the function onSubmit, that pulls in the event object 
 function onSubmit(e) {
 
@@ -268,6 +273,3 @@ function initMap() {
       }
 
 // GOOGLE END
-
-
-
