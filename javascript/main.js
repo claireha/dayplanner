@@ -125,6 +125,10 @@ function addPinsToGoogleMap(data) {
 		    </tr>
 		  </tbody>
 		</table>
+		</div>
+		<div id="map"></div>
+		<div id="right-panel">
+           <p>Total Distance: <span id="total"></span></p>
 	`);
 
 	// function for the weather 
@@ -137,7 +141,7 @@ function addPinsToGoogleMap(data) {
 	      html = '<h2>'+weather.temp+'°'+weather.units.temp+'</h2>';
 	      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
 	      html += '<li>'+weather.currently+'</li>';
-	      html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+	      html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>'
 		  document.getElementById('weather').innerHTML = html;
 	    },
 	    error: function(error) {
