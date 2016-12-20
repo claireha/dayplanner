@@ -40,91 +40,89 @@
         </div>
 
         <!-- START FORM -->
-        <div class="container clearfix">
-        <div class="wrapper">
-            <h1>Day Planner</h1>
-            <form class="ui form js-form">
-                <div class="field">
-                    <label>Plans Name</label>
-                    <input type="text" name="plans-name" placeholder="ie. NYC Broadway Date" class="js-input">
-                </div>
-                <div class="field">
-                    <label>Date</label>
-                    <input type="text" name="date" placeholder="mm/dd/yyyy" class="js-input">
-                </div>
-                <div class="ui two column centered grid">
-                    <div class="two column row">
-                        <div class="column">
-                            <div class="ui horizontal divider">
-                                <h4>First Activity</h4>
-                            </div>
-                            <div class="field">
-                                <label>Activity Name:</label>
-                                <input type="text" name="activity-1-name" placeholder="ie. Pre-Show lunch" class="js-input">
-                            </div>
-                            <div class="field">
-                                <label>Activity Place Name:</label>
-                                <input type="text" name="activity-1-place-name" placeholder="ie. Susie's Diner" class="js-input">
-                            </div>
-                            <div class="field">
-                                <label>Activity Location:</label>
-                                <input type="text" name="activity-1-location" placeholder="ie. 444 W 35th Street New York, NY 10001" class="js-input">
-                            </div>
-                            <div class="field">
-                                <label>Activity URL to learn more:</label>
-                                <input type="text" name="activity-1-URL" placeholder="ie. yelp URL" class="js-input">
-                            </div>
-                            <div class="field">
-                                <label>Notes:</label>
-                                <input type="text" name="activity-1-notes" placeholder="ie. Reservation is under the name Claire" class="js-input">
-                            </div>
-                        </div>
-                        <!-- column -->
-                        <div class="column">
-                            <div class="ui horizontal divider">
-                                <h4>Second Activity</h4>
-                            </div>
-                            <div class="field">
-                                <label>Activity Name:</label>
-                                <input type="text" name="activity-2-name" placeholder="ie. Pre-Show lunch" class="js-input">
-                            </div>
-                            <div class="field">
-                                <label>Activity Place Name:</label>
-                                <input type="text" name="activity-2-place-name" placeholder="ie. Lion King on Broadway" class="js-input">
-                            </div>
-                            <div class="field">
-                                <label>Activity Location:</label>
-                                <input type="text" name="activity-2-location" placeholder="ie. 250 Hudson St, New York NY 10013" class="js-input">
-                            </div>
-                            <div class="field">
-                                <label>Activity URL to learn more:</label>
-                                <input type="text" name="activity-2-URL" placeholder="ie. yelp URL" class="js-input">
-                            </div>
-                            <div class="field">
-                                <label>Notes:</label>
-                                <input type="text" name="activity-2-notes" placeholder="ie. Claire will bring out the tickets" class="js-input">
-                            </div>
-                        </div>
-                        <!-- column -->
-                    </div>
-                </div>
-                <br>
-                <button class="ui button" type="submit">Submit</button>
-            </form>
+        <div class="white-container clearfix">
+          <div class="wrapper">
+            <span id="js-label"><h1>Day Planner</h1></span>
+          </div>
+           <div class="js-wrapper">
+              <form class="ui form js-form">
+                  <div class="field">
+                      <label>Plans Name*</label>
+                      <input type="text" name="plans-name" placeholder="ie. NYC Broadway Date" class="js-input">
+                  </div>
+                  <div class="field">
+                      <label>Date*</label>
+                      <input type="text" name="date" placeholder="mm/dd/yyyy" class="js-input">
+                  </div>
+                  <div class="ui two column centered grid">
+                      <div class="two column row">
+                          <div class="column">
+                              <div class="ui horizontal divider">
+                                  <h4>First Activity</h4>
+                              </div>
+                              <div class="field">
+                                  <label>Activity Name*</label>
+                                  <input type="text" name="activity-1-name" placeholder="ie. Pre-Show lunch" class="js-input">
+                              </div>
+                              <div class="field">
+                                  <label>Activity Place Name*</label>
+                                  <input type="text" name="activity-1-place-name" placeholder="ie. Susie's Diner" class="js-input">
+                              </div>
+                              <div class="field">
+                                  <label>Activity Location*</label>
+                                  <input type="text" name="activity-1-location" placeholder="444 W 35th Street New York, NY 10001" class="js-input">
+                              </div>
+                              <div class="field">
+                                  <label>Activity URL to learn more</label>
+                                  <input type="text" name="activity-1-URL" placeholder="ie. yelp URL" class="js-input" data-optional>
+                              </div>
+                              <div class="field">
+                                  <label>Notes</label>
+                                  <input type="text" name="activity-1-notes" placeholder="ie. Reservation is under the name Claire" class="js-input" data-optional>
+                              </div>
+                          </div>
+                          <!-- column -->
+                          <div class="column">
+                              <div class="ui horizontal divider">
+                                  <h4>Second Activity</h4>
+                              </div>
+                              <div class="field">
+                                  <label>Activity Name*</label>
+                                  <input type="text" name="activity-2-name" placeholder="ie. Broadway Show" class="js-input">
+                              </div>
+                              <div class="field">
+                                  <label>Activity Place Name*</label>
+                                  <input type="text" name="activity-2-place-name" placeholder="ie. Lion King Theater" class="js-input">
+                              </div>
+                              <div class="field">
+                                  <label>Activity Location*</label>
+                                  <input type="text" name="activity-2-location" placeholder="250 Hudson St, New York NY 10013" class="js-input">
+                              </div>
+                              <div class="field">
+                                  <label>Activity URL to learn more</label>
+                                  <input type="text" name="activity-2-URL" placeholder="ie. yelp URL" class="js-input" data-optional>
+                              </div>
+                              <div class="field">
+                                  <label>Notes</label>
+                                  <input type="text" name="activity-2-notes" placeholder="ie. Claire will bring out the tickets" class="js-input" data-optional>
+                              </div>
+                          </div>
+                          <!-- column -->
+                      </div>
+                  </div>
+                  <br>
+                  <button class="ui button" type="submit">Submit</button>
+              </form>
+          </div>
+          <div class="wrapper">
+            <div id="weather"></div>
+            <div id="js-results-wrapper"></div>
+            <div id="map"></div>
+            <div id="right-panel">
+              <p>Total Distance: <span id="total"></span></p>
+            </div>
 
-             <div id="map"></div>
-      
-                <script>
-                  var map;
-                  function initMap() {
-                    map = new google.maps.Map(document.getElementById('map'), {
-                      center: {lat: -34.397, lng: 150.644},
-                      zoom: 8
-                    });
-                  }
-                </script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-Sd2lRuWR2XUL3cVBQBGYaq4i7y_OrvU&callback=initMap"
-                async defer></script>
+          </div>
 
 
         </div>
@@ -134,6 +132,10 @@
         </footer>
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
         <script src='javascript/semantic.min.js'></script>
-        <script src='javascript/main.js'></script>
+                <script src='javascript/main.js'></script>
+       <script async defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-Sd2lRuWR2XUL3cVBQBGYaq4i7y_OrvU&callback=initMap">
+        </script>
+        <script src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.1.0.min.js"></script>
     </body>
 </html>
