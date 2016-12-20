@@ -70,7 +70,7 @@
                               </div>
                               <div class="field">
                                   <label>Activity Location*</label>
-                                  <input type="text" name="activity-1-location" placeholder="ie. 444 W 35th Street New York, NY 10001" class="js-input">
+                                  <input type="text" name="activity-1-location" placeholder="444 W 35th Street New York, NY 10001" class="js-input">
                               </div>
                               <div class="field">
                                   <label>Activity URL to learn more</label>
@@ -96,7 +96,7 @@
                               </div>
                               <div class="field">
                                   <label>Activity Location*</label>
-                                  <input type="text" name="activity-2-location" placeholder="ie. 250 Hudson St, New York NY 10013" class="js-input">
+                                  <input type="text" name="activity-2-location" placeholder="250 Hudson St, New York NY 10013" class="js-input">
                               </div>
                               <div class="field">
                                   <label>Activity URL to learn more</label>
@@ -115,10 +115,12 @@
               </form>
           </div>
           <div class="wrapper">
-               <div id="map"></div>
-               <div id="weather"></div>
-               <div id="js-results-wrapper">
-               </div>
+            <div id="weather"></div>
+            <div id="js-results-wrapper"></div>
+            <div id="map"></div>
+            <div id="right-panel">
+              <p>Total Distance: <span id="total"></span></p>
+            </div>
 
           </div>
 
@@ -130,8 +132,10 @@
         </footer>
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
         <script src='javascript/semantic.min.js'></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-Sd2lRuWR2XUL3cVBQBGYaq4i7y_OrvU" async defer></script>
-        <script src='javascript/main.js'></script>
+                <script src='javascript/main.js'></script>
+       <script async defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-Sd2lRuWR2XUL3cVBQBGYaq4i7y_OrvU&callback=initMap">
+        </script>
         <script src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.1.0.min.js"></script>
     </body>
 </html>
