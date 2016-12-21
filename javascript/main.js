@@ -5,11 +5,6 @@ const form = $('.js-form');
 // When the submit button on the form is clicked, run the function onSubmit()
 form.submit(onSubmit);
 
-// Accordian javascript
-$('.ui.accordion')
-  .accordion()
-;
-
 // Define the function onSubmit, that pulls in the event object 
 function onSubmit(e) {
 
@@ -45,6 +40,23 @@ function onSubmit(e) {
 	}
 }
 
+function parseParms() {
+    const params = window.location.search.split('?').pop();
+    const args = params.split('&');
+    return args.reduce((hash, curr) => {
+      const bits = curr.split('=');
+
+      hash[bits[0]] = decodeURIComponent(bits[1])
+      return hash;
+    }, {});
+}
+
+if (window.location.search) {
+	const params = parseParms();
+	console.log(params)
+	addPinsToGoogleMap(params);
+}
+
 $('.js-input').focus(function() {
 	if ($(this).parent().hasClass('error')) {
 		$(this).parent().removeClass('error')
@@ -73,7 +85,7 @@ function addPinsToGoogleMap(data) {
 	const activity2location = data['activity-2-location'];
 	const activity2url = data['activity-2-URL'];
 	const activity2notes = data['activity-2-notes'];
-
+	
 
 	// Shows stuff below the maps
 	$('#js-results-wrapper').html(`
@@ -131,28 +143,39 @@ function addPinsToGoogleMap(data) {
 		  </tbody>
 		</table>
 		</div>
+		<div id="js-weather"></div>
 		<div id="map"></div>
 		<div id="right-panel">
            <p>Total Distance: <span id="total"></span></p>
+        </div>
+
 	`);
 
+
+
+
+	console.log(data)
+
+
 	// function for the weather 
-	reallySimpleWeather.weather({
-	    wunderkey: '', // leave blank for Yahoo
-	    location: activity1location, //your location 
-	    woeid: '', // "Where on Earth ID"
-	    unit: 'f', // 'c' also works
-	    success: function(weather) {
-	      html = '<h2>'+weather.temp+'°'+weather.units.temp+'</h2>';
-	      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-	      html += '<li>'+weather.currently+'</li>';
-	      html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>'
-		  document.getElementById('weather').innerHTML = html;
-	    },
-	    error: function(error) {
-		  document.getElementById('weather').innerHTML = '<p>'+error+'</p>';
-	    }
-	});
+	// reallySimpleWeather.weather({
+	//     wunderkey: '', // leave blank for Yahoo
+	//     location: activity1location, //your location 
+	//     woeid: '', // "Where on Earth ID"
+	//     unit: 'f', // 'c' also works
+	//     success: function(weather) {
+	//       html = '<h2>'+weather.temp+'°'+weather.units.temp+'</h2>';
+	//       html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+	//       html += '<li>'+weather.currently+'</li>';
+	//       html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>'
+	// 	  document.getElementById('weather').innerHTML = html;
+	//     },
+	//     error: function(error) {
+	// 	  document.getElementById('weather').innerHTML = '<p>'+error+'</p>';
+	//     }
+	// });
+
+
 
 	// Adds pins to the map and adds map to the page
 	const map = new google.maps.Map(document.getElementById('map'), {
@@ -175,15 +198,17 @@ function addPinsToGoogleMap(data) {
             position: results[0].geometry.location
         });
 
+        getWeatherForecast(results[0].geometry.location.lat(), results[0].geometry.location.lng())
+
  		geocode(data['activity-2-location'], function(results){
  			loc2 = results[0].geometry.location;
  			addr2 = results[0].formatted_address;
- 			console.log('##########', results)
 			map.setCenter(loc2);
 	        var marker = new google.maps.Marker({
 	            map: map,
 	            position: results[0].geometry.location
 	        });
+
 			var directionsService = new google.maps.DirectionsService;
 	        var directionsDisplay = new google.maps.DirectionsRenderer({
 	          draggable: true,
@@ -200,14 +225,53 @@ function addPinsToGoogleMap(data) {
 	        displayRoute(addr1, addr2, directionsService,
 	            directionsDisplay);
 		});
-	});
-
-
-	
-
-	 
+	});	 
 
 }
+
+
+// dark sky function
+
+function getWeatherForecast(lat,lng){
+	$.ajax({
+	url: `https://api.darksky.net/forecast/ab7c4c121757f535420a689dfd6daacd/${lat},${lng}`,
+	method: 'GET',
+	dataType: 'jsonp'
+	}).then((data) => {
+		console.log(data)
+		const currentTemp = data.currently['temperature'];
+		const currentSummary = data.currently['summary'];
+		const dailySummary = data.daily['summary'];
+		$('#js-weather').append(`
+
+		<table class="ui selectable unstackable celled table">
+		  <thead>
+		    <tr>
+		      <th>Weather</th>
+		      <th>Details</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>Current Temp: </td>
+		      <td>${currentTemp}°</td>
+		    </tr>
+		     <tr>
+		      <td>Current Weather: </td>
+		      <td>${currentSummary}</td>
+		    </tr>
+		 	<tr>
+		      <td>Week Summary: </td>
+		      <td>${dailySummary}</td>
+		    </tr>
+		  </tbody>
+		</table>
+		</div>
+			`);
+
+	})
+}
+
 
 // Gets the geocode for the locations
 function geocode(address, callback) {
@@ -222,8 +286,8 @@ function geocode(address, callback) {
 	});
 }
 
-// GOOGLE DRAGGABLE MAP START
 
+// GOOGLE DRAGGABLE MAP START
 function initMap() {
 
         // var map = new google.maps.Map(document.getElementById('map'), {
