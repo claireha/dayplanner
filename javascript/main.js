@@ -75,11 +75,13 @@ function addPinsToGoogleMap(data) {
 	const activity1name = data['activity-1-name'];
 	const activity1placename = data['activity-1-place-name'];
 	const activity1location = data['activity-1-location'];
+	const activity1time = data['activity-1-time'];
 	const activity1url = data['activity-1-URL'];
 	const activity1notes = data['activity-1-notes'];
 	const activity2name = data['activity-2-name'];
 	const activity2placename = data['activity-2-place-name'];
 	const activity2location = data['activity-2-location'];
+	const activity2time = data['activity-2-time'];
 	const activity2url = data['activity-2-URL'];
 	const activity2notes = data['activity-2-notes'];
 	
@@ -101,6 +103,10 @@ function addPinsToGoogleMap(data) {
 		     <tr>
 		      <td>Location: </td>
 		      <td>${activity1location}</td>
+		    </tr>
+		    <tr>
+		      <td>Time: </td>
+		      <td>${activity1time}</td>
 		    </tr>
 		 	<tr>
 		      <td>URL: </td>
@@ -128,6 +134,10 @@ function addPinsToGoogleMap(data) {
 		     <tr>
 		      <td>Location: </td>
 		      <td>${activity2location}</td>
+		    </tr>
+		    <tr>
+		      <td>Time: </td>
+		      <td>${activity2time}</td>
 		    </tr>
 		 	<tr>
 		      <td>URL: </td>
