@@ -9,7 +9,7 @@ form.submit(onSubmit);
 function onSubmit(e) {
 
 // Prevents default submit action that causes refresh on click
-	e.preventDefault();
+	// e.preventDefault();
 
 // Creates an object variable that is empty and then 
 // Data is added to it via a loop
