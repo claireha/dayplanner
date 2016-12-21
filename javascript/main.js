@@ -8,9 +8,6 @@ form.submit(onSubmit);
 // Define the function onSubmit, that pulls in the event object 
 function onSubmit(e) {
 
-// Prevents default submit action that causes refresh on click
-	// e.preventDefault();
-
 // Creates an object variable that is empty and then 
 // Data is added to it via a loop
 	const data = {};
@@ -155,26 +152,6 @@ function addPinsToGoogleMap(data) {
 
 
 	console.log(data)
-
-
-	// function for the weather 
-	// reallySimpleWeather.weather({
-	//     wunderkey: '', // leave blank for Yahoo
-	//     location: activity1location, //your location 
-	//     woeid: '', // "Where on Earth ID"
-	//     unit: 'f', // 'c' also works
-	//     success: function(weather) {
-	//       html = '<h2>'+weather.temp+'°'+weather.units.temp+'</h2>';
-	//       html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-	//       html += '<li>'+weather.currently+'</li>';
-	//       html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>'
-	// 	  document.getElementById('weather').innerHTML = html;
-	//     },
-	//     error: function(error) {
-	// 	  document.getElementById('weather').innerHTML = '<p>'+error+'</p>';
-	//     }
-	// });
-
 
 
 	// Adds pins to the map and adds map to the page
