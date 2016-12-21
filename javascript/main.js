@@ -40,16 +40,16 @@ function onSubmit(e) {
 	}
 }
 
-function parseParms() {
-    const params = window.location.search.split('?').pop();
-    const args = params.split('&');
-    return args.reduce((hash, curr) => {
-      const bits = curr.split('=');
+// function parseParms() {
+//     const params = window.location.search.split('?').pop();
+//     const args = params.split('&');
+//     return args.reduce((hash, curr) => {
+//       const bits = curr.split('=');
 
-      hash[bits[0]] = decodeURIComponent(bits[1])
-      return hash;
-    }, {});
-}
+//       hash[bits[0]] = decodeURIComponent(bits[1])
+//       return hash;
+//     }, {});
+// }
 
 if (window.location.search) {
 	const params = parseParms();
